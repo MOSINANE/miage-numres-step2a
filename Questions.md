@@ -59,19 +59,80 @@ Temps: 0.001805s
 Taille: 1 bytes
 
 # Q12:  Proposition 1
-Description:
-Temps:
-Taille:
+Description: L'activation du cache Hibernate permet de réduire les requêtes répétitives à la base de données en stockant les résultats en mémoire pour une réutilisation ultérieure. Cela améliore les performances des requêtes sur les entités fréquemment utilisées, comme les `Question` et `Proposal`.
+Avant l'activation du cache :
+    Endpoint : /quizz/questions
+    Temps de réponse : 21.47s
+    Taille de la réponse : 883 bytes
+
+    Endpoint : /quizz/questions/1/proposals
+    Temps de réponse : 12.50s
+    Taille de la réponse : 609 bytes
+
+    Endpoint : /quizz/proposals/evaluate
+    Temps de réponse : 0.015s
+    Taille de la réponse : 1 byte
+
+Après l'activation du cache :
+    Endpoint : /quizz/questions
+    Temps de réponse : 16.89s (-21%)
+    Taille de la réponse : 883 bytes
+
+    Endpoint : /quizz/questions/1/proposals
+    Temps de réponse : 11.78s (-5.7%)
+    Taille de la réponse : 609 bytes
+
+    Endpoint : /quizz/proposals/evaluate
+    Temps de réponse : 0.017s (+13%)
+    Taille de la réponse : 1 byte
 
 # Q13:  Proposition 2
-Description:
-Temps:
-Taille:
+Description: Le service de traduction ajoutait une latence importante en raison des appels REST externes et augmentait la taille des réponses JSON. En supprimant ce service, les données renvoyées sont limitées aux informations essentielles, ce qui améliore drastiquement les performances.
+ Avant suppression :
+1. Endpoint : `/quizz/questions`
+   - Temps de réponse : **16.89s**
+   - Taille de la réponse : **883 bytes**
+
+2. Endpoint : `/quizz/questions/1/proposals`
+   - Temps de réponse : **11.78s**
+   - Taille de la réponse : **609 bytes**
+
+3. Endpoint : `/quizz/proposals/evaluate`
+   - Temps de réponse : **0.017s**
+   - Taille de la réponse : **1 byte**
+
+ Après suppression :
+1. Endpoint : `/quizz/questions`
+   - Temps de réponse : **0.514s** (-96.96%)
+   - Taille de la réponse : **256 bytes** (-71%)
+
+2. Endpoint : `/quizz/questions/1/proposals`
+   - Temps de réponse : **0.021s** (-99.82%)
+   - Taille de la réponse : **191 bytes** (-68.65%)
+
+3. Endpoint : `/quizz/proposals/evaluate`
+   - Temps de réponse : **0.042s** (+147%, mais toujours négligeable).
+   - Taille de la réponse : **1 byte** (inchangé).
 
 # Q14:  Proposition 3
-Description:
-Temps:
-Taille:
+Description: Dans la méthode `listProposals`, une boucle était utilisée pour filtrer les propositions en mémoire après une requête SQL. Ce filtrage est superflu, car la clause `find("question.id", questionId)` assure déjà le bon résultat.
+ Avant l'optimisation :
+1. Endpoint : `/quizz/questions`
+   - Temps de réponse : **0.514s**
+   - Taille de la réponse : **256 bytes**
+
+2. Endpoint : `/quizz/questions/1/proposals`
+   - Temps de réponse : **0.051s**
+   - Taille de la réponse : **191 bytes**
+
+ Après l'optimisation :
+1. Endpoint : `/quizz/questions`
+   - Temps de réponse : **0.367s** (-28.6%)
+   - Taille de la réponse : **256 bytes** (inchangé)
+
+2. Endpoint : `/quizz/questions/1/proposals`
+   - Temps de réponse : **0.021s** (-58.8%)
+   - Taille de la réponse : **191 bytes** (inchangé)
 
 # Q15:  Proposition 4
 Description:
