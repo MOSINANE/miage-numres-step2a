@@ -135,6 +135,6 @@ Description: Dans la méthode `listProposals`, une boucle était utilisée pour 
    - Taille de la réponse : **191 bytes** (inchangé)
 
 # Q15:  Proposition 4
-Description:
-Temps:
-Taille:
+Description: Supprimer les imports inutilisés 
+Temps: 0.001632s
+Taille: 1 bytes
