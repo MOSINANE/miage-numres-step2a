@@ -1,11 +1,30 @@
 # Q1 : Décrire ce que renvoie la méthode qui liste les questions ?
 Réponse:
+La méthode qui liste les questions renvoie une liste d'objets JSON, où chaque objet représente une question. Chaque question contient :
+
+- Un id unique.
+- Une liste de translations, indiquant la question traduite en différentes langues, chaque traduction ayant un attribut language pour spécifier la langue et un attribut value pour le texte de la question.
+- Un objet catgory (probablement une faute pour "category"), qui contient une liste de translations pour les noms de catégorie en plusieurs langues, avec les mêmes attributs (language et value).
 
 # Q2 : Décrire ce que renvoie la méthode qui liste les propositions d'une question ?
 Réponse:
+La méthode qui liste les propositions d'une question (pour un id donné) renvoie une liste d'objets JSON, où chaque objet représente une proposition associée à cette question. Chaque proposition contient :
+
+- Un id unique pour la proposition.
+- Une liste de translations, qui sont les traductions de la proposition en différentes langues (avec les attributs language et value).
+- Un objet question, qui contient les informations sur la question associée, y compris :
+    +Un id unique pour la question.
+    +Une liste de translations pour le texte de la question dans différentes langues.
+    +Une catégorie (catgory), avec ses traductions dans différentes langues.
 
 # Q3 : Décrire ce que renvoie la méthode qui évalue des réponses ?
 Réponse:
+La méthode qui évalue des réponses renvoie une valeur numérique indiquant le score ou la validité des réponses données.
+
+- L'entrée est une liste d'objets JSON contenant les identifiants (id) des propositions sélectionnées.
+- La réponse est un entier :
+    + 0 indique que les réponses ne sont pas correctes.
+    + Une autre valeur pourrait être retournée si les réponses sont correctes ou partiellement correctes (non visible dans cet exemple).
 
 # Q4 : Quelle est la valeur de la RSS utilisée par l'api quarkus en mode JVM ?
 Réponse:
