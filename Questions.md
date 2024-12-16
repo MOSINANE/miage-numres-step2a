@@ -44,18 +44,19 @@ Taille: 1 byte
 
 # Q8 : Empreinte mémoire en mode natif ?
 Réponse:
+La commande ps montre une empreinte mémoire (RSS) de 2304 KB en mode natif pour le processus Quarkus.
 
 # Q9: Temps et  taille  réponse   liste les questions
-Temps:
-Taille:
+Temps: 21.479436s
+Taille: 883 bytes
 
 # Q10: Temps et  taille  réponse  liste des propositions
-Temps:
-Taille:
+Temps: 11.891815s
+Taille: 609 bytes
 
 # Q11: Temps et  taille  réponse  évaluation les réponses
-Temps:
-Taille:
+Temps: 0.001805s
+Taille: 1 bytes
 
 # Q12:  Proposition 1
 Description:
