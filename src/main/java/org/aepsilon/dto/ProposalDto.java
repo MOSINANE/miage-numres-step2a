@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ProposalDto {
     public Long id;
-    public List<TranslationDto> translations;
+    //public List<TranslationDto> translations;
 
     public QuestionDto question;
 
@@ -16,7 +16,7 @@ public class ProposalDto {
 
     public ProposalDto(Proposal p, String lg){
         id = p.id;
-        translations =  new ArrayList<>();
-        translations.add(new TranslationDto(p,lg));
+        // translations =  new ArrayList<>();
+        // translations.add(new TranslationDto(p,lg));
     }
 }
