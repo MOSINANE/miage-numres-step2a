@@ -1,10 +1,10 @@
 package org.aepsilon.dto;
 
-import org.aepsilon.orm.Category;
+//import org.aepsilon.orm.Category;
 import org.aepsilon.orm.Proposal;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 public class ProposalDto {
     public Long id;

@@ -6,7 +6,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.aepsilon.dto.ProposalDto;
-import org.aepsilon.dto.QuestionDto;
+//import org.aepsilon.dto.QuestionDto;
 import org.aepsilon.orm.Proposal;
 import org.aepsilon.orm.Question;
 import org.aepsilon.service.QuizzService;
